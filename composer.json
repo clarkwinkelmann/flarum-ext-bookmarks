@@ -1,0 +1,35 @@
+{
+    "name": "clarkwinkelmann/flarum-ext-bookmarks",
+    "description": "Bookmark discussions to find them easily later",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": ">=0.1.0-beta.13 <0.1.0-beta14",
+        "ext-json": "*"
+    },
+    "authors": [
+        {
+            "name": "Clark Winkelmann",
+            "email": "clark.winkelmann@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ClarkWinkelmann\\Bookmarks\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Bookmarks",
+            "icon": {
+                "name": "fas fa-bookmark",
+                "backgroundColor": "#684ba6",
+                "color": "#fff"
+            }
+        }
+    }
+}
