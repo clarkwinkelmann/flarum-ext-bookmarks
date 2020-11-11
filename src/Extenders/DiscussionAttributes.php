@@ -8,13 +8,10 @@ use Flarum\Api\Serializer\DiscussionSerializer;
 use Flarum\Discussion\Event\Saving;
 use Flarum\Extend\ExtenderInterface;
 use Flarum\Extension\Extension;
-use Flarum\User\AssertPermissionTrait;
 use Illuminate\Contracts\Container\Container;
 
 class DiscussionAttributes implements ExtenderInterface
 {
-    use AssertPermissionTrait;
-
     public function extend(Container $container, Extension $extension = null)
     {
         $container['events']->listen(Serializing::class, [$this, 'attributes']);
@@ -31,7 +28,7 @@ class DiscussionAttributes implements ExtenderInterface
     public function saving(Saving $event)
     {
         if (isset($event->data['attributes']['bookmarked'])) {
-            $this->assertRegistered($event->actor);
+            $event->actor->assertRegistered();
 
             $state = $event->discussion->stateFor($event->actor);
 

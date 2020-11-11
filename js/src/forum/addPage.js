@@ -1,39 +1,36 @@
 import {extend} from 'flarum/extend';
 import app from 'flarum/app';
-import DiscussionList from 'flarum/components/DiscussionList';
+import DiscussionListState from 'flarum/states/DiscussionListState';
 import IndexPage from 'flarum/components/IndexPage';
 import LinkButton from 'flarum/components/LinkButton';
 
 /* global m */
 
 export default function () {
+    app.routes.bookmarks = {
+        path: '/bookmarks',
+        component: IndexPage,
+    };
+
     extend(IndexPage.prototype, 'navItems', function (items) {
         if (!app.session.user) {
             return;
         }
 
-        const params = this.stickyParams();
-
-        params.filter = 'bookmarks';
-
         items.add('bookmarks', LinkButton.component({
-            href: app.route('index.filter', params),
+            href: app.route('bookmarks', app.search.stickyParams()),
             icon: 'fas fa-bookmark',
         }, app.translator.trans('clarkwinkelmann-bookmarks.forum.page.link')));
     });
 
-    extend(IndexPage.prototype, 'config', function (out, isInitialized) {
-        if (isInitialized) {
-            return;
-        }
-
-        if (this.props.routeName === 'index.filter' && m.route.param('filter') === 'bookmarks') {
+    extend(IndexPage.prototype, 'setTitle', function () {
+        if (app.current.get('routeName') === 'bookmarks') {
             app.setTitle(app.translator.trans('clarkwinkelmann-bookmarks.forum.page.title'));
         }
     });
 
-    extend(DiscussionList.prototype, 'requestParams', function (params) {
-        if (this.props.params.filter === 'bookmarks') {
+    extend(DiscussionListState.prototype, 'requestParams', function (params) {
+        if (app.current.get('routeName') === 'bookmarks') {
             params.filter.q = (params.filter.q || '') + ' is:bookmarked';
         }
     });
