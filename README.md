@@ -29,3 +29,4 @@ Support is offered on a "best effort" basis through the Flarum community thread.
 
 - [GitHub](https://github.com/clarkwinkelmann/flarum-ext-bookmarks)
 - [Packagist](https://packagist.org/packages/clarkwinkelmann/flarum-ext-bookmarks)
+- [Discuss](https://discuss.flarum.org/d/25357)
