@@ -24,7 +24,7 @@ class ForumAttributes implements ExtenderInterface
              */
             $settings = app(SettingsRepositoryInterface::class);
 
-            $event->attributes['independentBookmarkButton'] = $settings->get('bookmark.independentButton') !== '0';
+            $event->attributes['independentBookmarkButton'] = $settings->get('bookmarks.independentButton') !== '0';
         }
     }
 }
