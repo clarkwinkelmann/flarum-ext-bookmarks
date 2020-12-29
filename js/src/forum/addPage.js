@@ -1,5 +1,6 @@
 import {extend} from 'flarum/extend';
 import app from 'flarum/app';
+import GlobalSearchState from 'flarum/states/GlobalSearchState';
 import DiscussionListState from 'flarum/states/DiscussionListState';
 import IndexPage from 'flarum/components/IndexPage';
 import LinkButton from 'flarum/components/LinkButton';
@@ -29,8 +30,13 @@ export default function () {
         }
     });
 
+    // This code differs from the Subscription extension because it fixes https://github.com/flarum/core/issues/2516
+    extend(GlobalSearchState.prototype, 'params', function (params) {
+        params.bookmarked = app.current.get('routeName') === 'bookmarks';
+    })
+
     extend(DiscussionListState.prototype, 'requestParams', function (params) {
-        if (app.current.get('routeName') === 'bookmarks') {
+        if (this.params.bookmarked) {
             params.filter.q = (params.filter.q || '') + ' is:bookmarked';
         }
     });

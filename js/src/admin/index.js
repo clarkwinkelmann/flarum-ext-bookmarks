@@ -1,6 +1,11 @@
 import app from 'flarum/app';
-import SettingsModal from './components/SettingsModal';
 
 app.initializers.add('clarkwinkelmann-bookmarks', () => {
-    app.extensionSettings['clarkwinkelmann-bookmarks'] = () => app.modal.show(SettingsModal);
+    app.extensionData
+        .for('clarkwinkelmann-bookmarks')
+        .registerSetting({
+            setting: 'bookmarks.independentButton',
+            label: app.translator.trans('clarkwinkelmann-bookmarks.admin.settings.independentButton'),
+            type: 'boolean',
+        });
 });

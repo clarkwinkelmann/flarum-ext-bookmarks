@@ -25,6 +25,8 @@ You can [contact me](https://clarkwinkelmann.com/flarum) to sponsor additional f
 
 Support is offered on a "best effort" basis through the Flarum community thread.
 
+**Sponsors**: [Phenomlab](https://phenomlab.net/)
+
 ## Links
 
 - [GitHub](https://github.com/clarkwinkelmann/flarum-ext-bookmarks)

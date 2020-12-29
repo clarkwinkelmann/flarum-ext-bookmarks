@@ -7,16 +7,21 @@
     "type": "flarum-extension",
     "license": "MIT",
     "require": {
-        "flarum/core": ">=0.1.0-beta.14 <0.1.0-beta15",
+        "flarum/core": ">=0.1.0-beta.15 <0.1.0-beta.16",
         "ext-json": "*"
     },
     "authors": [
         {
             "name": "Clark Winkelmann",
+            "homepage": "https://clarkwinkelmann.com/",
             "email": "clark.winkelmann@gmail.com",
             "role": "Developer"
         }
     ],
+    "support": {
+        "source": "https://github.com/clarkwinkelmann/flarum-ext-bookmarks",
+        "forum": "https://discuss.flarum.org/d/25357"
+    },
     "autoload": {
         "psr-4": {
             "ClarkWinkelmann\\Bookmarks\\": "src/"
@@ -25,6 +30,7 @@
     "extra": {
         "flarum-extension": {
             "title": "Bookmarks",
+            "category": "discussion",
             "icon": {
                 "name": "fas fa-bookmark",
                 "backgroundColor": "#684ba6",
