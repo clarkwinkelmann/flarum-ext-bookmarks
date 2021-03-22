@@ -6,9 +6,8 @@ use ClarkWinkelmann\Bookmarks\Listeners\SaveDiscussion;
 use Flarum\Api\Serializer\DiscussionSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Discussion\Event\Saving;
-use Flarum\Event\ConfigureDiscussionGambits;
+use Flarum\Discussion\Search\DiscussionSearcher;
 use Flarum\Extend;
-use Illuminate\Contracts\Events\Dispatcher;
 
 return [
     (new Extend\Frontend('forum'))
@@ -34,9 +33,6 @@ return [
             return $value !== '0';
         }),
 
-    function (Dispatcher $events) {
-        $events->listen(ConfigureDiscussionGambits::class, function (ConfigureDiscussionGambits $event) {
-            $event->gambits->add(Gambits\BookmarkedGambit::class);
-        });
-    },
+    (new Extend\SimpleFlarumSearch(DiscussionSearcher::class))
+        ->addGambit(Gambits\BookmarkedGambit::class),
 ];

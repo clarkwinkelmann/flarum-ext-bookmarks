@@ -5,8 +5,8 @@ namespace ClarkWinkelmann\Bookmarks\Content;
 use Flarum\Api\Client;
 use Flarum\Api\Controller\ListDiscussionsController;
 use Flarum\Frontend\Document;
+use Flarum\Locale\Translator;
 use Flarum\User\User;
-use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -48,8 +48,6 @@ class Bookmarks
         $document->title = $this->translator->trans('clarkwinkelmann-bookmarks.forum.page.title');
         $document->content = $this->view->make('flarum.forum::frontend.content.index', compact('apiDocument', 'page'));
         $document->payload['apiDocument'] = $apiDocument;
-
-        return $document;
     }
 
     private function getSortMap()

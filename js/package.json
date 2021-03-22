@@ -1,5 +1,5 @@
 {
-    "name": "@clarkwinkelmann/flarum-ext-bookmarks",
+    "name": "@clarkwinkelmann/bookmarks",
     "version": "0.0.0",
     "private": true,
     "dependencies": {

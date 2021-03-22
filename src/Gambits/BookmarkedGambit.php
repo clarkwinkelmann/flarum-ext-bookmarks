@@ -3,14 +3,17 @@
 namespace ClarkWinkelmann\Bookmarks\Gambits;
 
 use Flarum\Search\AbstractRegexGambit;
-use Flarum\Search\AbstractSearch;
+use Flarum\Search\SearchState;
 use Illuminate\Database\Query\Builder;
 
 class BookmarkedGambit extends AbstractRegexGambit
 {
-    protected $pattern = 'is:bookmarked';
+    protected function getGambitPattern()
+    {
+        return 'is:bookmarked';
+    }
 
-    protected function conditions(AbstractSearch $search, array $matches, $negate)
+    protected function conditions(SearchState $search, array $matches, $negate)
     {
         $actor = $search->getActor();
 

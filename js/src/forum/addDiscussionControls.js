@@ -4,6 +4,8 @@ import Button from 'flarum/components/Button';
 import DiscussionPage from 'flarum/components/DiscussionPage';
 import DiscussionControls from 'flarum/utils/DiscussionControls';
 
+/* global m */
+
 function bookmarkButton(discussion, translation, className = '') {
     const bookmarked = discussion.attribute('bookmarked');
 
