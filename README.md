@@ -1,4 +1,4 @@
-# Bookmarks
+# Discussion Bookmarks
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/clarkwinkelmann/flarum-ext-bookmarks.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-bookmarks) [![Total Downloads](https://img.shields.io/packagist/dt/clarkwinkelmann/flarum-ext-bookmarks.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-bookmarks) [![Donate](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/clarkwinkelmann)
 
@@ -25,7 +25,7 @@ You can [contact me](https://clarkwinkelmann.com/flarum) to sponsor additional f
 
 Support is offered on a "best effort" basis through the Flarum community thread.
 
-**Sponsors**: [Phenomlab](https://phenomlab.net/), [ctml](https://discuss.flarum.org/u/ctml)
+**Sponsors**: [Phenomlab](https://phenomlab.net/), [ctml](https://discuss.flarum.org/u/ctml), [Glowing Blue](https://glowingblue.com/)
 
 ## Links
 

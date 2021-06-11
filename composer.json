@@ -7,7 +7,7 @@
     "type": "flarum-extension",
     "license": "MIT",
     "require": {
-        "flarum/core": ">=0.1.0-beta.16 <0.1.0-beta.17",
+        "flarum/core": "^1.0",
         "ext-json": "*"
     },
     "authors": [
@@ -29,8 +29,8 @@
     },
     "extra": {
         "flarum-extension": {
-            "title": "Bookmarks",
-            "category": "discussion",
+            "title": "Discussion Bookmarks",
+            "category": "feature",
             "icon": {
                 "name": "fas fa-bookmark",
                 "backgroundColor": "#684ba6",

@@ -1,8 +1,8 @@
-import {extend} from 'flarum/extend';
-import app from 'flarum/app';
-import Button from 'flarum/components/Button';
-import DiscussionPage from 'flarum/components/DiscussionPage';
-import DiscussionControls from 'flarum/utils/DiscussionControls';
+import {extend} from 'flarum/common/extend';
+import app from 'flarum/forum/app';
+import Button from 'flarum/common/components/Button';
+import DiscussionPage from 'flarum/forum/components/DiscussionPage';
+import DiscussionControls from 'flarum/forum/utils/DiscussionControls';
 
 /* global m */
 

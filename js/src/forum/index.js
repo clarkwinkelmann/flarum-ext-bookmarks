@@ -1,4 +1,4 @@
-import app from 'flarum/app';
+import app from 'flarum/forum/app';
 import addBadge from './addBadge';
 import addDiscussionControls from './addDiscussionControls';
 import addPage from './addPage';

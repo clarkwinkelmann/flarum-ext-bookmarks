@@ -3,13 +3,11 @@
 namespace ClarkWinkelmann\Bookmarks\Content;
 
 use Flarum\Api\Client;
-use Flarum\Api\Controller\ListDiscussionsController;
 use Flarum\Frontend\Document;
 use Flarum\Locale\Translator;
-use Flarum\User\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Arr;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ServerRequestInterface;
 
 class Bookmarks
 {
@@ -24,10 +22,9 @@ class Bookmarks
         $this->translator = $translator;
     }
 
-    public function __invoke(Document $document, Request $request)
+    public function __invoke(Document $document, ServerRequestInterface $request)
     {
         $queryParams = $request->getQueryParams();
-        $actor = $request->getAttribute('actor');
 
         $sort = Arr::pull($queryParams, 'sort');
         $q = Arr::pull($queryParams, 'q', '');
@@ -43,14 +40,14 @@ class Bookmarks
             'page' => ['offset' => ($page - 1) * 20, 'limit' => 20],
         ];
 
-        $apiDocument = $this->getApiDocument($actor, $params);
+        $apiDocument = $this->getApiDocument($request, $params);
 
         $document->title = $this->translator->trans('clarkwinkelmann-bookmarks.forum.page.title');
         $document->content = $this->view->make('flarum.forum::frontend.content.index', compact('apiDocument', 'page'));
         $document->payload['apiDocument'] = $apiDocument;
     }
 
-    private function getSortMap()
+    private function getSortMap(): array
     {
         return [
             'latest' => '-lastPostedAt',
@@ -60,8 +57,8 @@ class Bookmarks
         ];
     }
 
-    private function getApiDocument(User $actor, array $params)
+    private function getApiDocument(ServerRequestInterface $request, array $params)
     {
-        return json_decode($this->api->send(ListDiscussionsController::class, $actor, $params)->getBody());
+        return json_decode($this->api->withParentRequest($request)->withQueryParams($params)->get('/discussions')->getBody());
     }
 }

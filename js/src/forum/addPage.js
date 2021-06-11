@@ -1,9 +1,9 @@
-import {extend} from 'flarum/extend';
-import app from 'flarum/app';
-import GlobalSearchState from 'flarum/states/GlobalSearchState';
-import DiscussionListState from 'flarum/states/DiscussionListState';
-import IndexPage from 'flarum/components/IndexPage';
-import LinkButton from 'flarum/components/LinkButton';
+import {extend} from 'flarum/common/extend';
+import app from 'flarum/forum/app';
+import GlobalSearchState from 'flarum/forum/states/GlobalSearchState';
+import DiscussionListState from 'flarum/forum/states/DiscussionListState';
+import IndexPage from 'flarum/forum/components/IndexPage';
+import LinkButton from 'flarum/common/components/LinkButton';
 
 /* global m */
 

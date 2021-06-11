@@ -8,7 +8,7 @@ use Illuminate\Database\Query\Builder;
 
 class BookmarkedGambit extends AbstractRegexGambit
 {
-    protected function getGambitPattern()
+    protected function getGambitPattern(): string
     {
         return 'is:bookmarked';
     }

@@ -24,12 +24,12 @@ return [
         ->listen(Saving::class, SaveDiscussion::class),
 
     (new Extend\ApiSerializer(DiscussionSerializer::class))
-        ->attribute('bookmarked', function (DiscussionSerializer $serializer, Discussion $discussion) {
+        ->attribute('bookmarked', function (DiscussionSerializer $serializer, Discussion $discussion): bool {
             return $discussion->state ? !is_null($discussion->state->bookmarked_at) : false;
         }),
 
     (new Extend\Settings())
-        ->serializeToForum('independentBookmarkButton', 'bookmarks.independentButton', function ($value) {
+        ->serializeToForum('independentBookmarkButton', 'bookmarks.independentButton', function ($value): bool {
             return $value !== '0';
         }),
 
