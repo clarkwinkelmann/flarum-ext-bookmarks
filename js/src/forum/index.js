@@ -1,6 +1,6 @@
 import app from 'flarum/forum/app';
 import addBadge from './addBadge';
-import addDiscussionControls from './addDiscussionControls';
+import { default as addDiscussionControls, bookmarkButton } from './addDiscussionControls';
 import addPage from './addPage';
 
 app.initializers.add('clarkwinkelmann-bookmarks', () => {
@@ -8,3 +8,5 @@ app.initializers.add('clarkwinkelmann-bookmarks', () => {
     addDiscussionControls();
     addPage();
 });
+
+export { bookmarkButton }
