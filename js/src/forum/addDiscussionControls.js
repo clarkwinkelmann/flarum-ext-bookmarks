@@ -6,7 +6,7 @@ import DiscussionControls from 'flarum/forum/utils/DiscussionControls';
 
 /* global m */
 
-function bookmarkButton(discussion, translation, className = '') {
+export function bookmarkButton(discussion, translation, className = '') {
     const bookmarked = discussion.attribute('bookmarked');
 
     return Button.component({
