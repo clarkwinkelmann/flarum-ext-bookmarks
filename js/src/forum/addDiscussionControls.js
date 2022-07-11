@@ -38,4 +38,19 @@ export default function () {
 
         items.add('bookmark', bookmarkButton(this.discussion, 'independentButton', 'Button Button--bookmark'));
     });
+
+    // Blog pages don't re-use Flarum's discussion sidebarItems, so custom code is needed to have a bookmark button on that page
+    if ('v17development/blog/pages/BlogItem' in flarum.core.compat) {
+        extend(flarum.core.compat['v17development/blog/pages/BlogItem'].prototype, 'contentItems', function (items) {
+            if (!app.session.user || !this.article) {
+                return;
+            }
+
+            items.add(
+                'bookmark',
+                m('.FlarumBlog-Article-Content-Bookmark-Button', bookmarkButton(this.article, 'independentButton', 'Button Button--bookmark')),
+                78 // Just below the edit controls that admins can see
+            );
+        });
+    }
 }
