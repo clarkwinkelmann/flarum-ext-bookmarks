@@ -2,6 +2,8 @@
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/clarkwinkelmann/flarum-ext-bookmarks.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-bookmarks) [![Total Downloads](https://img.shields.io/packagist/dt/clarkwinkelmann/flarum-ext-bookmarks.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-bookmarks) [![Donate](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/clarkwinkelmann)
 
+> This extension was moved to https://github.com/clarkwinkelmann/flarum-ext-discussion-bookmarks
+
 This extension lets user bookmark discussions.
 
 Bookmarked discussions have a badge and appear under the additional bookmarks page.
@@ -12,7 +14,7 @@ A single setting lets you customize whether you want the control to be accessibl
 
 ## Installation
 
-    composer require clarkwinkelmann/flarum-ext-bookmarks
+See https://github.com/clarkwinkelmann/flarum-ext-discussion-bookmarks for the new releases
 
 ## Support
 
